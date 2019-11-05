@@ -51,7 +51,11 @@ class FeedsController < ApplicationController
   end
   
   def destroy
+    @feed = Feed.find(params[:id])
+    @feed.destroy
+    redirect_to feeds_path, notice: '投稿を削除しました'
   end
+  
   private
 
   def feed_params
