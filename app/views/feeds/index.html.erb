@@ -1,0 +1,20 @@
+<h1>投稿一覧</h1>
+
+<% @feeds.each do |feed| %>
+  <table>
+    <div class = "each_feed">
+      <tr>
+        <td>投稿日時 <%= feed.created_at %></td>
+      </tr>
+      <tr>
+        <td>投稿者 <%= feed.user.name %></td>
+      </tr>
+      <tr>
+        <td><%= feed.content %></td>
+      </tr>
+      <tr>
+        <td><%= image_tag(feed.image.url) if feed.image && feed.image.url %></td>
+      </tr>
+    </div>
+  </table>
+<% end %>

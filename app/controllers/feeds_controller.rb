@@ -1,14 +1,20 @@
 class FeedsController < ApplicationController
   def index
+    @feeds = Feed.all
   end
 
   def new
-    @feed = Feed.new
+    if params[:back]
+      @feed = Feed.new(feed_params)
+    else
+      @feed = Feed.new
+    end
   end
 
   def create
-    @feed = Feed.new(feed_params)
-    @feed.user_id = current_user.id
+    #@feed = Feed.new(feed_params)
+    #@feed.user_id = current_user.id
+    @feed = current_user.feeds.build(feed_params)
     if @feed.save
       redirect_to new_feed_path
     else
