@@ -1,0 +1,23 @@
+<table>
+<div class = "each_feed">
+  <tr>
+    <td>投稿日時 <%= @feed.created_at %></td>
+  </tr>
+  <tr>
+    <td>投稿者 <%= @feed.user.name %></td>
+  </tr>
+  <tr>
+    <td><%= @feed.content %></td>
+  </tr>
+  <tr>
+    <td><%= image_tag(@feed.image.url) if @feed.image && @feed.image.url %></td>
+  </tr>
+</div>
+</table>
+
+<%= form_with(model:@feed, url: edit_feed_path, local:true, method:"get") do |form| %>
+  <%= form.hidden_field :content %>
+  <%= form.hidden_field :image_cache %>
+  <%= form.submit "編集する", name: "edit" %>
+<% end %>
+
