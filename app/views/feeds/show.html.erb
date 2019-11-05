@@ -14,12 +14,10 @@
   </tr>
 </div>
 </table>
-
 <%= form_with(model:@feed, url: edit_feed_path, local:true, method:"get") do |form| %>
   <%= form.hidden_field :content %>
   <%= form.hidden_field :image_cache %>
   <%= form.submit "編集する", name: "edit" %>
 <% end %>
-
 <%= link_to '投稿を削除する', feed_path(@feed.id), method: :delete, data: { confirm: '本当に削除して良いですか？'} %>
 
