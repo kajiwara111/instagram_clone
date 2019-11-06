@@ -18,7 +18,8 @@ class FeedsController < ApplicationController
     #@feed.user_id = current_user.id
     @feed = current_user.feeds.build(feed_params)
     if @feed.save
-      redirect_to new_feed_path
+      InstagramMailer.instagram_mail(@feed).deliver
+      redirect_to new_feed_path, notice: '正常に投稿されました'
     else
       render 'new'
     end
@@ -26,7 +27,7 @@ class FeedsController < ApplicationController
 
   def confirm
     @feed = Feed.new(feed_params)
-    render :new if @feed.invalid?  #validation error時は確認画面に遷移させない
+    #render :new #if @feed.invalid?  #validation error時は確認画面に遷移させない
   end
 
   def show
