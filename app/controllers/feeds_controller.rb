@@ -31,6 +31,8 @@ class FeedsController < ApplicationController
 
   def show
     @feed = Feed.find(params[:id])
+    #login中のユーザーがお気に入りしている投稿がなければnil
+    @favorite = current_user.favorites.find_by(feed_id: @feed.id)
   end
 
   def edit
@@ -63,6 +65,7 @@ class FeedsController < ApplicationController
   def feed_params
     params.require(:feed).permit(:image, :image_cache, :content)
   end
+
   def correct_user
     @feed = Feed.find(params[:id])
     @user = @feed.user
