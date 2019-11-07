@@ -1,0 +1,27 @@
+<h1>お気に入り一覧</h1>
+
+<% @feeds.each do |feed| %>
+    <table>
+        <div class = "each_feed">
+            <tr>
+                <td>投稿日時 <%= feed.created_at %></td>
+            </tr>
+            <tr>
+                <td>投稿者 <%= feed.user.name %></td>
+            </tr>
+            <tr>
+                <td><%= feed.content %></td>
+            </tr>
+            <tr>
+                <td><%= image_tag(feed.image.url) if feed.image && feed.image.url %></td>
+            </tr>
+            <tr>
+                <% favorite = current_user.favorites.find_by(feed_id: feed.id) %> 
+                <td>
+                    <%= link_to 'お気に入り解除する', favorite_path(id: favorite.id), method: :delete, class: 'btn btn-danger' %>
+                </td>
+            </tr>
+        </div>
+
+    </table>
+<% end %>

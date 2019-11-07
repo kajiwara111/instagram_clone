@@ -23,7 +23,6 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    #@user.image = params[:user][:image]
     if @user.update(user_params)
       flash[:notice] = 'プロフィール画像を更新しました'
       redirect_to user_path(@user.id)

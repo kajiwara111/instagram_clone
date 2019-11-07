@@ -6,6 +6,6 @@ Rails.application.routes.draw do
       post :confirm
     end
   end
-  resources :favorites, only: %i[create destroy]
+  resources :favorites, only: %i[index create destroy]
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 end
