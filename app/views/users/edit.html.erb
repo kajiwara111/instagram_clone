@@ -1,0 +1,37 @@
+<%= form_with(model: @user, local: true) do |form| %>
+  <div class="form-group">
+    <%= form.label :name, 'ニックネーム' %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :email, 'メールアドレス' %>
+    <%= form.email_field :email, class: 'form-control' %>
+  </div> 
+  
+  <div class="accbox">
+    <label for="label1">パスワードを変更するかたはこちら</label>
+    <input type="checkbox" id="label1" class="cssacc" />
+    <div class="accshow">
+      <div class="form-group">
+        新しいパスワード<br>
+        <%= form.password_field :password, class: 'form-control' %>
+      </div>
+  
+      <div class="form-group">
+        新しいパスワードを再入力<br>
+        <%= form.password_field :password_confirmation, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+  <div class="image_field">
+    <%= image_tag(@user.image.url) if @user.image && @user.image.url %>
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
