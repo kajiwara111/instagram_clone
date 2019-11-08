@@ -80,42 +80,8 @@ footer{
   color: white;
 }
 
-/*
-body{
-  display: flex;
-  align-items: center;
-  min-height: 100vh;
-  flex-direction: column;
+
+.form-group {
+  width: 40%;
+  margin: 20px auto;
 }
-
-
-
-
-
-/*
-#wrapper{
-  flex-grow: 1;
-}
-*/
-/*
-#wrapper {
-  flex: 1;
-}
-
-footer{
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-}
-
-/*
-body, #wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
- 
-footer {
-  margin-top: auto;
-}
-*/
