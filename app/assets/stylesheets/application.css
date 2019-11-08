@@ -10,6 +10,112 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require bootstrap/dist/css/bootstrap.min
  *= require_tree .
  *= require_self
  */
+
+
+nav, h1, table {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+table {
+  border-spacing: 5px;
+}
+
+.clearfix:after {
+  clear:both;
+  content:'';
+  display:block;
+}
+
+.navbar-brand {
+  font-style: italic;
+  font-weight: bold;
+}
+
+h1 {
+  padding-left: 2px;
+  width: 300px;
+}
+
+html {
+  height: 100%;
+}
+
+.container {
+  margin: 0;
+}
+
+body {
+  background-color: lightgoldenrodyellow;
+  min-height: 100vh;
+  position: relative;
+}
+
+header {
+  background-color: lightseagreen;
+  height: 50px;
+  width: 100%
+}
+
+.flash {
+  width: 200px;
+  padding-left: 30px;
+}
+
+footer{
+  width: 100%;
+  background-color: #89c7de;
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  padding: 30px 0;
+  position: absolute;/*←絶対位置*/
+  bottom: 0; /*下に固定*/
+}
+
+.nav-link, .navbar-brand {
+  color: white;
+}
+
+/*
+body{
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+
+
+
+
+/*
+#wrapper{
+  flex-grow: 1;
+}
+*/
+/*
+#wrapper {
+  flex: 1;
+}
+
+footer{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+/*
+body, #wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+ 
+footer {
+  margin-top: auto;
+}
+*/

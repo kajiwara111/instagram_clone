@@ -21,13 +21,16 @@ class FeedsController < ApplicationController
       InstagramMailer.instagram_mail(@feed).deliver
       redirect_to new_feed_path, notice: '正常に投稿されました'
     else
-      render 'new'
+     render 'new'
     end
   end
 
   def confirm
     @feed = Feed.new(feed_params)
-    #render :new #if @feed.invalid?  #validation error時は確認画面に遷移させない
+    if @feed.invalid? #validationエラー時は確認画面に遷移させない
+      flash[:danger] = 'コメントの入力、画像の添付をしてください。'
+      render 'new'
+    end
   end
 
   def show

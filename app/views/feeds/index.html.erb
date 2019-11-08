@@ -1,22 +1,22 @@
 <h1>投稿一覧</h1>
 
 <% @feeds.each do |feed| %>
-  <table>
+  <table class="table">
     <div class = "each_feed">
-      <tr>
+      <tr class="success">
         <td>投稿日時 <%= feed.created_at %></td>
       </tr>
-      <tr>
+      <tr class="success">
         <td>投稿者 <%= feed.user.name %></td>
       </tr>
-      <tr>
+      <tr class="success">
         <td><%= feed.content %></td>
       </tr>
-      <tr>
+      <tr class="success">
         <td><%= image_tag(feed.image.url) if feed.image && feed.image.url %></td>
       </tr>
       <tr>
-        <td><%= link_to '詳細表示', feed_path(feed.id) %></td>
+        <td><%= link_to '詳細表示', feed_path(feed.id), class: 'btn btn-primary' %></td>
       </tr>
     </div>
   </table>

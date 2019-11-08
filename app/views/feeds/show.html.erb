@@ -1,4 +1,4 @@
-<table>
+<table class="table">
 <div class = "each_feed">
   <tr>
     <td>投稿日時 <%= @feed.created_at %></td>
@@ -18,7 +18,7 @@
   <%= form_with(model:@feed, url: edit_feed_path, local:true, method:"get") do |form| %>
     <%= form.hidden_field :content %>
     <%= form.hidden_field :image_cache %>
-    <%= form.submit "編集する", name: "edit" %>
+    <%= form.submit "編集する", name: "edit", class: "btn btn-primary" %>
   <% end %>
   <%= link_to '投稿を削除する', feed_path(@feed.id), method: :delete, data: { confirm: '本当に削除して良いですか？'} %>
 <% end %>

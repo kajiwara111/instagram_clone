@@ -4,25 +4,43 @@
     <title>InstagramClone</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
-    <% if logged_in? %>
-      <%= link_to "Profile", user_path(current_user.id) %>
-      <%= link_to "Logout", session_path(current_user.id), method: :delete %>
-      <%= link_to "新規投稿", new_feed_path %>
-      <%= link_to "投稿一覧", feeds_path %>
-      <%= link_to "お気に入り一覧", favorites_path %>
-    <% else %>
-      <%= link_to "Sign up", new_user_path %>
-      <%= link_to "Login", new_session_path %>
-    <% end %>
-    <%= yield %>
+    <header class="clearfix">
+      <nav class='navbar navbar-light bg-active navbar-left'>
+        <div class="container">
+          <div class='navbar-header'>
+            <p class='navbar-brand'>InstagramClone</p>
+          </div>
+          <ul class="nav navbar-nav ml-8">
+            <% if logged_in? %>
+              <li class='nav-item'><%= link_to "Profile", user_path(current_user.id), class: 'nav-link' %></li>
+              <li class='nav-item'><%= link_to "Logout", session_path(current_user.id), method: :delete, class: 'nav-link' %></li>
+              <li class='nav-item'><%= link_to "新規投稿", new_feed_path, class: 'nav-link' %></li>
+              <li class='nav-item'><%= link_to "投稿一覧", feeds_path, class: 'nav-link' %></li>
+              <li class='nav-item'><%= link_to "お気に入り一覧", favorites_path, class: 'nav-link' %></li>
+            <% else %>
+              <li class='nav-item'><%= link_to "Sign up", new_user_path, class: 'nav-link' %></li>
+              <li class='nav-item'><%= link_to "Login", new_session_path, class: 'nav-link' %></li>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class='flash'>
+        <% flash.each do |key, value| %>
+          <%= content_tag(:div, value, class: "#{key}") %>
+        <% end %>
+      </div>
+      <%= yield %>
+    </main>
+    <footer class="footer">
+        <p>DIC TrainingTask InstagramClone</p>
+    </footer>
   </body>
 </html>
