@@ -85,3 +85,12 @@ footer{
   width: 40%;
   margin: 20px auto;
 }
+
+.feed-group {
+  margin: 20px auto; 
+}
+
+.new-feed {
+  margin: 20px 300px auto;
+}
+
