@@ -1,7 +1,7 @@
-<h1><%= @user.name %>のページ</h1>
-<% unless @user.image %>
-  <%= link_to 'プロフィールの編集はこちら', edit_user_path(@user.id) %>
-<% else %>
+<h1><%= @user.name %>さんのページ</h1>
+<div class="image_area">
   <%= image_tag(@user.image.url) if @user.image && @user.image.url %>
+</div>
+<div class="btn btn-default", id="prof_show_link">
   <%= link_to 'プロフィールの編集はこちら', edit_user_path(@user.id) %>
-<% end %>
+</div>

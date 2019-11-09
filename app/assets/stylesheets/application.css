@@ -37,7 +37,7 @@ table {
 
 h1 {
   padding-left: 2px;
-  width: 300px;
+  width: 600px;
 }
 
 html {
@@ -94,3 +94,11 @@ footer{
   margin: 20px 300px auto;
 }
 
+#prof_show_link {
+  margin-top: 20px;
+}
+
+table.favorite-feed {
+  border-collapse: separate;
+  border-spacing: 10px 10px;
+}
