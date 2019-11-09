@@ -27,7 +27,8 @@ class FeedsController < ApplicationController
   end
 
   def confirm
-    @feed = Feed.new(feed_params)
+    #@feed = Feed.new(feed_params)
+    @feed = current_user.feeds.build(feed_params)
     if @feed.invalid? #validationエラー時は確認画面に遷移させない
       flash.now[:danger] = 'コメントの入力、画像の添付をしてください。'
       render 'new'
