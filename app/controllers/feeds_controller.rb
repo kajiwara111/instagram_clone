@@ -1,4 +1,5 @@
 class FeedsController < ApplicationController
+  before_action :login_check
   before_action :correct_user, only: %i[edit update]
 
   def index

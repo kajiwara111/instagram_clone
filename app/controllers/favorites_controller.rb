@@ -1,4 +1,5 @@
 class FavoritesController < ApplicationController
+  before_action :login_check
   def index
     @feeds = current_user.favorite_feeds
   end

@@ -10,4 +10,11 @@ module SessionsHelper
   def current_user?(user)
     user == current_user
   end
+
+  def login_check
+    unless logged_in?
+        flash[:alert] = "ログインしてください"
+        redirect_to new_session_path
+    end
+  end
 end
