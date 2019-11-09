@@ -20,7 +20,7 @@ class FeedsController < ApplicationController
     @feed = current_user.feeds.build(feed_params)
     if @feed.save
       InstagramMailer.instagram_mail(@feed).deliver
-      redirect_to new_feed_path, notice: '正常に投稿されました'
+      redirect_to feeds_path, notice: '正常に投稿されました'
     else
      render 'new'
     end
