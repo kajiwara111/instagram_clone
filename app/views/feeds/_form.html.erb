@@ -14,13 +14,11 @@
       <%= form.label :content %>
       <%= form.text_area :content, class: 'form-control input-lg', placeholder: '1文字以上255文字以内で入力してください' %>
     </div>
-
     <div class="form-group feed">
       <%= image_tag(@feed.image.url) if @feed.image && @feed.image.url %>
       <%= form.label :image %>
       <%= form.file_field :image %>
     </div>
-
     <div class="form-group feed">
       <%= form.submit %>
     </div>

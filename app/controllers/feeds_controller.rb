@@ -71,7 +71,6 @@ class FeedsController < ApplicationController
   def feed_params
     params.require(:feed).permit(:image, :image_cache, :content)
   end
-
 #  def correct_user
 #    @feed = Feed.find(params[:id])
 #    @user = @feed.user
