@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :login_check, only: %i[show edit]
+  before_action :user_check, only: %i[show edit update]
+
   def new
     @user = User.new
   end
@@ -34,7 +36,9 @@ class UsersController < ApplicationController
   end
 
   private
+  
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :image_chache)
   end
+
 end
