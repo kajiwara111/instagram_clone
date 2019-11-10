@@ -1,6 +1,6 @@
 class FeedsController < ApplicationController
   before_action :login_check
-  before_action :correct_user, only: %i[edit update]
+  before_action :user_check, only: %i[edit update]
 
   def index
     @feeds = Feed.all.order(id: 'DESC')
@@ -72,9 +72,9 @@ class FeedsController < ApplicationController
     params.require(:feed).permit(:image, :image_cache, :content)
   end
 
-  def correct_user
-    @feed = Feed.find(params[:id])
-    @user = @feed.user
-    redirect_to feeds_path unless current_user?(@user)
-  end
+#  def correct_user
+#    @feed = Feed.find(params[:id])
+#    @user = @feed.user
+#    redirect_to feeds_path unless current_user?(@user)
+#  end
 end
